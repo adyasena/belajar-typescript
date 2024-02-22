@@ -49,12 +49,8 @@ export default function Homepage() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col container mx-auto font-poppins items-center text-center h-screen">
-        <div className="flex flex-col mt-10 lg:mt-0 lg:mx-10">
-          {/* <Wisata />
-        <Umkm />
-        <Galeri /> */}
-        </div>
+      <div className="flex flex-col container mx-auto lg:px-8 items-center text-center h-screen w-full">
+        <Wisata />
       </div>
     </>
   );

@@ -18,9 +18,9 @@ const lora = Lora({
 });
 
 export const metadata = {
-    title: "Literasi Jamu Digital",
+    title: "Inspirasi Kalirejo",
     description:
-        "Temukan kekayaan tumbuhan obat dan simplisia dalam monografi multimedia lengkap, jelajahi naskah kuno yang menyimpan rahasia pengobatan tradisional, dan saksikan proses autentik pembuatan jamu melalui koleksi video eksklusif.",
+        "Temukan destinasi wisata terbaik dan produk UMKM unggulan di Desa Kalirejo, Kecamatan Salaman, Kabupaten Magelang, Jawa Tengah",
 };
 
 export default function RootLayout({ children } : any) {
