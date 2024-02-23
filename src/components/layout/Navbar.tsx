@@ -16,7 +16,10 @@ export default function Navbar() {
     }
   };
 
-  window.addEventListener("scroll", changeClass);
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", changeClass);
+  }
+
   return (
     <div className="navbar">
       <div
