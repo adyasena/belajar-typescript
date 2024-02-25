@@ -1,9 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import Wisata from "../components/Wisata";
-import Umkm from "../components/Umkm";
-import Galeri from "../components/Galeri";
 import Image from "next/image";
+import { Button, ButtonGroup } from "@nextui-org/react";
+import Wisata from "../components/Wisata";
 
 export default function Homepage() {
   return (
@@ -14,7 +13,7 @@ export default function Homepage() {
           src="/assets/bg.jpg"
           width={1920}
           height={1080}
-          className="pointer-events-none h-screen w-screen object-cover brightness-[0.7]"
+          className="pointer-events-none h-screen w-screen object-cover brightness-[0.9]"
         />
         <div className="absolute w-full h-full bg-gradient-to-t from-white">
           <div className="flex flex-col h-full items-center justify-between lg:justify-center pt-36 lg:pt-0 font-semibold lg:text-center leading-normal gap-8">
@@ -37,14 +36,9 @@ export default function Homepage() {
                 Desa Kalirejo, Kecamatan Salaman, Kabupaten Magelang, Jawa
                 Tengah
               </p>
-              <button
-                className="bg-green-dark text-white font-normal lg:text-xl text-lg py-2 px-6 rounded-lg transform duration-300 ease lg:hover:bg-black"
-                // onClick={() => {
-                //   scrollToSection("wisata");
-                // }}
-              >
+              <Button size="lg" className="bg-green-dark text-white">
                 Telusuri Sekarang
-              </button>
+              </Button>
             </div>
           </div>
         </div>
