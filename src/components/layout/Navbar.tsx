@@ -1,12 +1,9 @@
 "use client";
-import Link from "next/link";
 import React, { useState } from "react";
-import { FaCircleInfo, FaBars } from "react-icons/fa6";
 import Image from "next/image";
 
 export default function Navbar() {
   const [scroll, setScroll] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
 
   const changeClass = () => {
     if (window.scrollY >= 180) {
@@ -25,8 +22,7 @@ export default function Navbar() {
       <div
         className={
           "navbar bg-white transform duration-300 ease " +
-          (scroll ? "opacity-100 " : "lg:h-24 opacity-0 ") +
-          (!isOpen ? "shadow-md" : "opacity-100")
+          (scroll ? "opacity-100 " : "lg:h-24 opacity-0 ")
         }
       ></div>
       <div

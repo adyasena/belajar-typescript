@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaFacebookF, FaYoutube, FaHouse } from "react-icons/fa6";
-import Image from "next/image";
 
 export default function Navbar() {
   const openInNewTab = ({ url } : any) => {
