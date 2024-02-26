@@ -1,8 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import { getServerSession } from "next-auth/next";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export default function Navbar() {
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      redirect("/api/auth/signin?callbackUrl=/admin");
+    },
+  });
   const [scroll, setScroll] = useState(false);
 
   const changeClass = () => {
@@ -32,59 +44,58 @@ export default function Navbar() {
           (scroll ? "h-16" : "lg:h-24 h-16")
         }
       >
-        <button
-          className="flex flex-row justify-start items-center h-full"
-          // onClick={() => {
-          //   scrollToTop();
-          // }}
-        >
-          <Image
-            alt=""
-            src="/assets/logo.png"
-            width={1000}
-            height={1000}
-            style={{ maxWidth: "100%", height: "auto" }}
-            className={
-              "m-2 transform duration-300 ease " +
-              (scroll ? "w-8" : "w-0 mr-[-4px]")
-            }
-          />
-          <p className="transform">Inspirasi Kalirejo</p>
-        </button>
-        <div className="lg:flex flex-row hidden gap-12">
-          <button
-            className="hover:underline"
-            // onClick={() => {
-            //   scrollToTop();
-            // }}
+        <Link href={"/"}>
+          <button className="flex flex-row justify-start items-center h-full">
+            <Image
+              alt=""
+              src="/assets/logo.png"
+              width={1000}
+              height={1000}
+              style={{ maxWidth: "100%", height: "auto" }}
+              className={
+                "m-2 transform duration-300 ease " +
+                (scroll ? "w-8" : "w-0 mr-[-4px]")
+              }
+            />
+            <p className="transform">Inspirasi Kalirejo</p>
+          </button>
+        </Link>
+        <div className="lg:flex flex-row hidden gap-6">
+          <Button
+            size="lg"
+            className="text-green-dark font-semibold"
+            variant="light"
           >
             Beranda
-          </button>
-          <button
-            className="hover:underline"
-            // onClick={() => {
-            //   scrollToSection("wisata");
-            // }}
+          </Button>
+          <Button
+            size="lg"
+            className="text-green-dark font-semibold"
+            variant="light"
           >
             Wisata
-          </button>
-          <button
-            className="hover:underline"
-            // onClick={() => {
-            //   scrollToSection("umkm");
-            // }}
-          >
-            UMKM
-          </button>
-          <button
-            className="hover:underline"
-            // onClick={() => {
-            //   scrollToSection("galeri");
-            // }}
-          >
-            Galeri
-          </button>
-          <button className="hover:underline">Kontak</button>
+          </Button>
+          {session ? (
+            <Link href={"/api/auth/signout"}>
+              <Button
+                size="lg"
+                className="text-green-dark font-semibold"
+                variant="ghost"
+              >
+                Sign Out
+              </Button>
+            </Link>
+          ) : (
+            <Link href={"/admin"}>
+              <Button
+                size="lg"
+                className="text-green-dark font-semibold"
+                variant="ghost"
+              >
+                Sign In
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
