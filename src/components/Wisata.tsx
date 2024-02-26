@@ -97,7 +97,6 @@ const Wisata = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <div id="umkm" className="h-16"></div>
     </div>
   );
 };
