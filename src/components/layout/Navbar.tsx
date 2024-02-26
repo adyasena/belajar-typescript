@@ -3,18 +3,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
-import { options } from "@/app/api/auth/[...nextauth]/options";
-import { getServerSession } from "next-auth/next";
 import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
 
 export default function Navbar() {
-  const { data: session } = useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect("/api/auth/signin?callbackUrl=/admin");
-    },
-  });
+  const { data: session } = useSession();
   const [scroll, setScroll] = useState(false);
 
   const changeClass = () => {
