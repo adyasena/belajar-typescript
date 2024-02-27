@@ -21,6 +21,20 @@ export default function Navbar() {
     window.addEventListener("scroll", changeClass);
   }
 
+  const scroll2El = (elID) => {
+    window.scrollTo({
+      top: document.getElementById(elID).offsetTop - 60,
+      behavior: "smooth",
+    });
+  };
+
+  const onBtnClick = (e) => {
+    const goto = e.target.getAttribute("goto");
+    setTimeout(() => {
+      scroll2El(goto);
+    }, 100);
+  };
+
   return (
     <div className="navbar">
       <div
@@ -53,20 +67,20 @@ export default function Navbar() {
           </button>
         </Link>
         <div className="lg:flex flex-row hidden gap-6">
-          <Button
-            size="lg"
-            className="text-green-dark font-semibold"
-            variant="light"
+          <button
+            className="text-base text-green-dark font-semibold hover:underline hover:underline-offset-2 p-2"
+            goto="beranda"
+            onClick={onBtnClick}
           >
             Beranda
-          </Button>
-          <Button
-            size="lg"
-            className="text-green-dark font-semibold"
-            variant="light"
+          </button>
+          <button
+            className="text-base text-green-dark font-semibold hover:underline hover:underline-offset-2 p-2"
+            goto="wisata"
+            onClick={onBtnClick}
           >
             Wisata
-          </Button>
+          </button>
           {session ? (
             <Link href={"/api/auth/signout"}>
               <Button

@@ -25,7 +25,10 @@ const Wisata = () => {
   }
 
   return (
-    <div className="flex flex-col text-4xl font-bold gap-4 w-full mx-auto text-green-dark">
+    <div
+      id="wisata"
+      className="flex flex-col text-4xl font-bold gap-4 w-full mx-auto text-green-dark"
+    >
       Bukit Grhadika Garden
       <div className="grid grid-cols-auto gap-4 ">
         <div className="relative h-[480px]">

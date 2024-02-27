@@ -7,7 +7,10 @@ import Wisata from "../components/Wisata";
 export default function Homepage() {
   return (
     <>
-      <div className="w-full h-screen mx-auto flex flex-col items-center justify-center relative">
+      <div
+        id="beranda"
+        className="w-full h-screen mx-auto flex flex-col items-center justify-center relative"
+      >
         <Image
           alt=""
           src="/assets/bg.jpg"
