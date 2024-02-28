@@ -21,14 +21,14 @@ export default function Navbar() {
     window.addEventListener("scroll", changeClass);
   }
 
-  const scroll2El = (elID) => {
+  const scroll2El = (elID: any) => {
     window.scrollTo({
       top: document.getElementById(elID).offsetTop - 60,
       behavior: "smooth",
     });
   };
 
-  const onBtnClick = (e) => {
+  const onBtnClick = (e: any) => {
     const goto = e.target.getAttribute("goto");
     setTimeout(() => {
       scroll2El(goto);
