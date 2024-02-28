@@ -23,13 +23,13 @@ export default function Navbar() {
 
   const scroll2El = (elID: any) => {
     window.scrollTo({
-      top: document.getElementById(elID).offsetTop - 60,
+      top: document.getElementById(elID)!.offsetTop - 60,
       behavior: "smooth",
     });
   };
 
   const onBtnClick = (e: any) => {
-    const goto = e.target.getAttribute("goto");
+    const goto = e.target.getAttribute("data-goto");
     setTimeout(() => {
       scroll2El(goto);
     }, 100);
@@ -69,14 +69,14 @@ export default function Navbar() {
         <div className="lg:flex flex-row hidden gap-6">
           <button
             className="text-base text-green-dark font-semibold hover:underline hover:underline-offset-2 p-2"
-            goto="beranda"
+            data-goto="beranda"
             onClick={onBtnClick}
           >
             Beranda
           </button>
           <button
             className="text-base text-green-dark font-semibold hover:underline hover:underline-offset-2 p-2"
-            goto="wisata"
+            data-goto="wisata"
             onClick={onBtnClick}
           >
             Wisata
